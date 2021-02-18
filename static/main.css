@@ -1,0 +1,67 @@
+html, body {
+    height: 100%;
+    margin: 0px;
+    font-family:  'Helvetica', 'Arial', sans-serif !important;
+    text-align: center;
+}
+
+img#logo {
+    max-height: 15vh;
+}
+
+h1.title {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 2rem !important;
+}
+
+#linkContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.linkFlexItems {
+    align-self: center;
+
+    /* safari bug fix from https://stackoverflow.com/a/57529046 */
+    align-items: flex-start;
+
+    /* flex-basis: 8vw; */
+    flex-grow: 0.5;
+    max-width: 150px;
+    flex-shrink: 0.8;
+
+    border-radius: 5px;
+    margin: 10px;
+    padding-bottom: 5px;
+}
+
+.fullWidthImg {
+    width: 100%;
+    height: auto;
+
+    margin-bottom: 5px;
+
+    /* also border radius these imgs */
+    border-radius: 5px;
+}
+
+a.linkFlexItems {
+    text-decoration: none !important;
+    font-size: 1.3em;
+}
+
+span.linkText {
+    padding: 0px 3px;
+}
+
+#attributionContainer {
+    position: fixed;
+    bottom: 6px;
+    right: 10px;
+
+    text-align: right;
+    color: #9b9b9b;
+    font-size: 0.75em;
+}
