@@ -8,6 +8,17 @@ import pathlib
 
 import os
 
+class InvalidIconValueException(Exception):
+    """Exception raised for when unreachable icon paths are found.
+
+    Attributes:
+        message -- explanation of the error
+    """
+    def __init__(self, message):
+        self.message = message
+        super().__init__(self.message)
+
+
 def cacheDownloadAndRelinkImages(data, dist_path: str):
     iconsDownloadedUrls = []
     for index, link in enumerate(data["links"]):
@@ -52,15 +63,18 @@ def cacheDownloadAndRelinkImages(data, dist_path: str):
             img = None
             if icon_url.startswith("http://") or icon_url.startswith("https://"):
                 response = requests.get(icon_url)
-                if response and response.ok:
-                    print("Cached " + icon_url + "...")
+                try:
+                    response.raise_for_status()
                     img = Image.open(BytesIO(response.content))
+                    print("Cached " + icon_url + "...")
+                except:
+                    raise InvalidIconValueException("\"" + icon_url + "\" could not be retrieved. Check and correct this url")
             else:
                 try:
-                    print("Resized " + icon_url + "...")
                     img = Image.open(absol_project_folder + icon_url)
+                    print("Resized " + icon_url + "...")
                 except:
-                    print("\"" + path + "\" invalid local image path skipped!")
+                    raise InvalidIconValueException(path + " could not be locally retrieved. Check that this file exists and the path is correct")
 
             if img is not None:
                 # resize to 150px width and height
