@@ -87,6 +87,20 @@ Look in the `gh-pages` branch to see all files which are built by the build scri
 Since this project is automatically deployable via GitHub pages you might want to use your custom (sub-)domain for this page.
 For a detailed instruction on how to set this up [look here](https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site).
 
+## Pulling updates from template
+
+If this template repo has been updated, and you want to incorporate these changes into your repo you can utilize this strategy [from Stack Overflow](https://stackoverflow.com/a/56577320)
+
+```sh
+git remote add template git@github.com:DavidM42/Navigo.git
+git fetch --all
+git merge template/master
+```
+
+After that you will have to manually solve conflicts then it should be updated.
+
+The following times this happens you then only have to execute `git merge template/master`.
+
 ## Attribution
 
 This project was originated from my quick link project for university [**wuel.de**](https://github.com/DavidM42/wuel).
