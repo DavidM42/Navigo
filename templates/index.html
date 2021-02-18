@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="{{ description }}">
+        <!-- TODO seo keyword passthrough from links.json needed? -->
+        <!-- <meta name="keywords" content="keywords.toString similiar thing"> -->
+        <title>{{ title }}</title>
+
+        <link rel="stylesheet" href="static/main.css">
+        <style>
+            body {
+                background-color: {{background_color}};
+                color: {{color}};
+            }
+            
+            a.linkFlexItems {
+                background-color: {{color}};
+                color: {{background_color}};
+                /* wasn't such a cool design so removed for now
+                border: 1px solid {{color}};*/
+            }
+        </style>
+
+        <!-- web manifest -->
+        <link rel="manifest" href="manifest.json">
+
+        <!-- all the icon sizes -->
+        <link rel="apple-touch-icon" sizes="180x180" href="static/icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="static/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="static/icons/favicon-16x16.png">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="{{color}}">
+        <meta name="theme-color" content="{{background_color}}">
+    </head>
+    <body>
+        <!-- not looking so good -->
+        <!-- <img id="logo" src="static/512x512logo.png" alt="{{title}} logo" title="{{title}} logo"> -->
+
+        <h1 class="title">{{title}}</h1>
+
+        <div id="linkContainer">
+            {% for item in links %}
+                <a href="{{ item.href }}" class="linkFlexItems">
+                    <img class="fullWidthImg" src="{{ item.iconUrl }}" alt="{{ item.name }} icon">
+                    <span class="linkText">{{ item.name }}</span>
+                </a>
+            {% endfor %}
+        </div>
+
+        <div id="attributionContainer">
+            Illustration by Elena
+        </div>
+    </body>
+</html>

@@ -1,0 +1,1 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QThis project was originated from my quick link project for university wuel.de.\\E$"}

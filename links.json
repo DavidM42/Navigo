@@ -1,0 +1,19 @@
+{
+    "title": "Navigo",
+    "short_name": "Navigo",
+    "description": "Quick navigation linking page",
+    "background_color": "#333",
+    "color": "#fff",
+    "links": [
+        {
+            "name": "Navigo origin",
+            "href": "https://www.online-latin-dictionary.com/latin-english-dictionary.php?parola=navigo",
+            "iconUrl": "https://www.online-latin-dictionary.com/inc/logo-dictionary.gif"
+        },
+        {
+            "name": "Navigo Projects",
+            "href": "https://github.com/DavidM42/Navigo",
+            "iconUrl": "linkIcons/github120px.png"
+        }
+    ]
+}
